@@ -47,12 +47,16 @@ public class GalleryFragment extends Fragment {
         galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         final  Button BtnConsultar= binding.btnConsultar;
         BtnConsultar.setOnClickListener(new View.OnClickListener() {
-            final  TextView texto=binding.txtConsulta;
-            final  TextView textoDos=binding.txtLength;
+            final  TextView textoFact=binding.txtConsulta;
+            final  TextView textoLength=binding.txtLength;
+            final TextView textoActualizado=binding.txtVActualizar;
+            final TextView editarEntrada=binding.edTextEntrada;
             final HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
 
             @Override
             public void onClick(View v) {
+
+
                 logging.setLevel(HttpLoggingInterceptor.Level.BODY);
                 // Asociamos el interceptor a las peticiones
                 final OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
@@ -72,11 +76,12 @@ public class GalleryFragment extends Fragment {
                             try {
                                 if(response.isSuccessful()){
                                     CatFact elemento=response.body();
-                                    texto.setText(elemento.getFact());
-                                    textoDos.setText(elemento.getLength());
+                                    textoFact.setText(elemento.getFact());
+                                    textoLength.setText(elemento.getLength());
                                 }
 
                             }catch (Exception ex){
+                                Toast.makeText(getContext(), "Error al realizar la Petición", Toast.LENGTH_SHORT).show();
                             }
                         }
 
@@ -84,6 +89,7 @@ public class GalleryFragment extends Fragment {
                         public void onFailure(Call<CatFact> call, Throwable t) {
                         }
                     });
+                textoActualizado.setText(editarEntrada.getText());
 
                 }
         });

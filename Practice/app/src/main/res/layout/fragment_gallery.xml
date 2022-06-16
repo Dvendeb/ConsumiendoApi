@@ -23,10 +23,10 @@
         android:id="@+id/txt_Consulta"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toTopOf="@+id/txt_Length"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.737"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -45,8 +45,30 @@
         android:id="@+id/txt_Length"
         android:layout_width="339dp"
         android:layout_height="57dp"
-        android:layout_marginBottom="372dp"
+        android:layout_marginBottom="280dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_Consultar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txtV_Actualizar"
+        android:layout_width="332dp"
+        android:layout_height="37dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_Consultar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Length"
+        app:layout_constraintVertical_bias="0.193" />
+
+    <EditText
+        android:id="@+id/edText_Entrada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/btn_Consultar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtV_Actualizar" />
 </androidx.constraintlayout.widget.ConstraintLayout>
